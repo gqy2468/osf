@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moefilm.web.mapper.TagMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.moefilm.web.model.Tag">
+		<id column="id" property="id" />
+		<result column="tag" property="tag" />
+		<result column="cover" property="cover" />
+		<result column="add_ts" property="addTs" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, tag, cover, add_ts AS addTs
+    </sql>
+
+</mapper>

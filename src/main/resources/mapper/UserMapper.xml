@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moefilm.web.mapper.UserMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.moefilm.web.model.User">
+		<id column="id" property="id" />
+		<result column="user_name" property="userName" />
+		<result column="user_email" property="userEmail" />
+		<result column="user_pwd" property="userPwd" />
+		<result column="user_registered_date" property="userRegisteredDate" />
+		<result column="user_status" property="userStatus" />
+		<result column="user_activationKey" property="userActivationkey" />
+		<result column="user_avatar" property="userAvatar" />
+		<result column="user_desc" property="userDesc" />
+		<result column="resetpwd_key" property="resetpwdKey" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_name AS userName, user_email AS userEmail, user_pwd AS userPwd, user_registered_date AS userRegisteredDate, user_status AS userStatus, user_activationKey AS userActivationkey, user_avatar AS userAvatar, user_desc AS userDesc, resetpwd_key AS resetpwdKey
+    </sql>
+
+</mapper>

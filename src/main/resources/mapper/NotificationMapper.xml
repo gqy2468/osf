@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moefilm.web.mapper.NotificationMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.moefilm.web.model.Notification">
+		<id column="id" property="id" />
+		<result column="notify_type" property="notifyType" />
+		<result column="notify_id" property="notifyId" />
+		<result column="object_type" property="objectType" />
+		<result column="object_id" property="objectId" />
+		<result column="notified_user" property="notifiedUser" />
+		<result column="notifier" property="notifier" />
+		<result column="status" property="status" />
+		<result column="ts" property="ts" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, notify_type AS notifyType, notify_id AS notifyId, object_type AS objectType, object_id AS objectId, notified_user AS notifiedUser, notifier, status, ts
+    </sql>
+
+</mapper>

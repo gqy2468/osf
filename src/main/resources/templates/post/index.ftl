@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="type" content="post">
+	<meta name="id" content="${post.id }">
+	<meta name="author" content="${post.postAuthor }">
+	<c:if test="${not empty user}">
+		<meta name="isLogin" content="true"/>
+	</c:if>
+	<c:if test="${empty user}">
+		<meta name="isLogin" content="false"/>
+	</c:if>
+	<title>${post.postTitle }</title>
+	<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/bootstrap2.css">
+	<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/semantic.css">
+	<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/style.css">
+	<style>
+	.post img{
+		max-width: 620px;
+	}
+	</style>
+	
+  	<script type="text/javascript" src="${request.contextPath}/js/jquery.js"></script>
+  	<script type="text/javascript" src="${request.contextPath}/js/semantic.js"></script>
+  	<script type="text/javascript" src="${request.contextPath}/js/basic.js"></script>
+  	<script type="text/javascript" src="${request.contextPath}/js/code.js"></script>
+  	<script type="text/javascript" src="${request.contextPath}/js/comment.js"></script>
+  	<script type="text/javascript" src="${request.contextPath}/js/post.js"></script>
+  	<script type="text/javascript" src="${request.contextPath}/js/follow.js"></script>
+  	<script type="text/javascript" src="${request.contextPath}/js/login.js"></script>
+</head>
+<body>
+	
+	<#include "../topbar.ftl">
+	<%@ include file="../login_modal.jsp" %>
+	<div class="container">
+		<div class="row">
+			<div class="span8 offset2">
+
+						<div class="post" id="post${post.id }">
+							<div class="header">
+								${post.postTitle }
+							</div>
+							<div class="date">
+								<i class="wait icon"></i><span>${post.postTs }</span>
+							</div>
+							<div class="meta">
+								<div class="author">
+									<a href="<c:url value="/user/${u.id }" />">
+										<img class="ui avatar image" src="<c:url value="${img_base_url }${u.userAvatar }" />">
+									</a>
+									<span>${u.userName }</span>
+									<c:if test="${!empty user }">
+										<c:if test="${user.id ne u.id }">
+											<c:if test="${follow }">
+												<span class="ui tiny basic button follow" following="${u.id }">已关注</span>
+											</c:if>
+											<c:if test="${!follow }">
+												<span class="ui inverted tiny yellow button follow" following="${u.id }">+关注</span> 
+											</c:if>									
+										</c:if>						
+									</c:if>	
+									<c:if test="${empty user }">
+										<span class="ui inverted tiny yellow button follow" following="${u.id }">+关注</span>
+									</c:if>
+								</div>
+							</div>
+							<p>
+								${post.postContent }
+							</p>
+
+						</div>
+						<div>
+							<div class="action">
+								<div class="ui circular icon basic button">						
+								  <i class="share alternate icon"></i>	
+								</div>							
+								<div class="ui circular orange icon button">
+								  <i class="weibo icon" id="weiboshare"></i>
+								</div>
+								<div class="ui circular blue icon button">
+								  <i class="qq icon" id="qqshare"></i>
+								</div>
+								<div class="ui circular green icon button">
+								  <i class="wechat icon" id="wechatshare"></i>
+								</div>	
+								<div class="ui circular icon basic button post like">
+								  <c:if test="${!is_like }">
+								  	<i class="empty red heart icon" id="like"></i>
+								  </c:if>
+								  <c:if test="${is_like }">
+								  	<i class="red heart icon" id="like"></i>
+								  </c:if>
+								</div>	
+								<c:if test="${u.id eq user.id}">
+								<div class="ui circular icon basic button post trash">
+									<i class="trash outline icon"></i>
+								</div>
+								</c:if>
+							</div>
+						</div>
+					</div>
+		</div>
+	</div>
+	
+	<!--  -->
+	<div class="comments">
+		<div class="container">
+			<div class="row">
+				<div class="span8 offset2">
+					<div class="ui comments" id="comments">
+						  <div id="replyarea">
+							  <form class="ui reply form" id="replyform">
+							    <div class="field">
+							      <textarea id="replycontent"></textarea>
+							    </div>
+								<div class="ui tiny primary button" id="replybtn">
+								  评论
+								</div>							    
+							  </form>								
+						  </div>
+						  
+						  <jsp:include page="/comment/post/${post.id }"></jsp:include>				  	
+						  
+					  </div>
+					  <!-- comment list -->					
+					</div>
+				</div>
+
+			 </div>
+		</div>
+		<!-- end comment -->
+	</div>
+	
+	<%@ include file="../trash_tip.jsp" %>
+</body>
+</html>

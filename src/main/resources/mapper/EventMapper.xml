@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moefilm.web.mapper.EventMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.moefilm.web.model.Event">
+		<id column="id" property="id" />
+		<result column="object_type" property="objectType" />
+		<result column="object_id" property="objectId" />
+		<result column="user_id" property="userId" />
+		<result column="user_name" property="userName" />
+		<result column="user_avatar" property="userAvatar" />
+		<result column="like_count" property="likeCount" />
+		<result column="share_count" property="shareCount" />
+		<result column="comment_count" property="commentCount" />
+		<result column="title" property="title" />
+		<result column="summary" property="summary" />
+		<result column="content" property="content" />
+		<result column="tags" property="tags" />
+		<result column="following_user_id" property="followingUserId" />
+		<result column="following_user_name" property="followingUserName" />
+		<result column="follower_user_id" property="followerUserId" />
+		<result column="follower_user_name" property="followerUserName" />
+		<result column="ts" property="ts" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, object_type AS objectType, object_id AS objectId, user_id AS userId, user_name AS userName, user_avatar AS userAvatar, like_count AS likeCount, share_count AS shareCount, comment_count AS commentCount, title, summary, content, tags, following_user_id AS followingUserId, following_user_name AS followingUserName, follower_user_id AS followerUserId, follower_user_name AS followerUserName, ts
+    </sql>
+
+</mapper>

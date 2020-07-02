@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moefilm.web.mapper.CommentMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.moefilm.web.model.Comment">
+		<id column="id" property="id" />
+		<result column="comment_object_type" property="commentObjectType" />
+		<result column="comment_object_id" property="commentObjectId" />
+		<result column="comment_author" property="commentAuthor" />
+		<result column="comment_author_name" property="commentAuthorName" />
+		<result column="comment_content" property="commentContent" />
+		<result column="comment_parent" property="commentParent" />
+		<result column="comment_parent_author_name" property="commentParentAuthorName" />
+		<result column="comment_parent_author" property="commentParentAuthor" />
+		<result column="comment_ts" property="commentTs" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, comment_object_type AS commentObjectType, comment_object_id AS commentObjectId, comment_author AS commentAuthor, comment_author_name AS commentAuthorName, comment_content AS commentContent, comment_parent AS commentParent, comment_parent_author_name AS commentParentAuthorName, comment_parent_author AS commentParentAuthor, comment_ts AS commentTs
+    </sql>
+
+</mapper>

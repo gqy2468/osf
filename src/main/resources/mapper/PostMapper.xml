@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moefilm.web.mapper.PostMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.moefilm.web.model.Post">
+		<id column="id" property="id" />
+		<result column="post_author" property="postAuthor" />
+		<result column="post_content" property="postContent" />
+		<result column="post_title" property="postTitle" />
+		<result column="post_excerpt" property="postExcerpt" />
+		<result column="post_status" property="postStatus" />
+		<result column="comment_status" property="commentStatus" />
+		<result column="post_pwd" property="postPwd" />
+		<result column="comment_count" property="commentCount" />
+		<result column="like_count" property="likeCount" />
+		<result column="share_count" property="shareCount" />
+		<result column="post_url" property="postUrl" />
+		<result column="post_tags" property="postTags" />
+		<result column="post_album" property="postAlbum" />
+		<result column="post_cover" property="postCover" />
+		<result column="post_ts" property="postTs" />
+		<result column="post_lastts" property="postLastts" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, post_author AS postAuthor, post_content AS postContent, post_title AS postTitle, post_excerpt AS postExcerpt, post_status AS postStatus, comment_status AS commentStatus, post_pwd AS postPwd, comment_count AS commentCount, like_count AS likeCount, share_count AS shareCount, post_url AS postUrl, post_tags AS postTags, post_album AS postAlbum, post_cover AS postCover, post_ts AS postTs, post_lastts AS postLastts
+    </sql>
+
+</mapper>
